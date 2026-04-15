@@ -1,6 +1,6 @@
 # Swift Deep Dive
 
-> [!warning]- ⚠️ For optimal experience, open this vault in [Obsidian](https://obsidian.md/)
+> ⚠️ **Tip:** For optimal experience, open this vault in [Obsidian](https://obsidian.md/)
 
 A deep dive into pure Swift, exploring core mechanics, memory management, and Data Structures & Algorithms.
 
