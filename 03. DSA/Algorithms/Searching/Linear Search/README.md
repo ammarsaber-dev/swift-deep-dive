@@ -2,8 +2,6 @@
 
 #algorithm #searching #array #brute-force
 
-> [!warning]- ⚠️ For optimal experience, open this vault in [Obsidian](https://obsidian.md/)
-
 > [!contents]+ Contents
 > - [[#How It Works]]
 > - [[#Performance Complexity]]
