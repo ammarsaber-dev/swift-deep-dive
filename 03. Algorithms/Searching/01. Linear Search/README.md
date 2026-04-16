@@ -57,17 +57,18 @@ numbers.firstIndex(where: { $0 == 5 })
 ## Challenges
 
 ### 1. Find Element
-Return the index of the target, or `nil` if not found.
+
+Given an array of integers and a target value, return the index of the first occurrence of the target, or `nil` if not found.
 
 ```swift
 func linearSearch<T: Equatable>(_ arr: [T], _ target: T) -> Int?
 ```
 
-| Input | Output |
-|:------|:-------|
-| `[1, 2, 3, 4, 5], 3` | `2` |
-| `[1, 2, 3, 4, 5], 6` | `nil` |
-| `["a", "b", "c"], "b"` | `1` |
+| Example | Input | Output |
+|:--------|:------|:-------|
+| Basic | `[1, 2, 3, 4, 5], 3` | `2` |
+| Not Found | `[1, 2, 3, 4, 5], 6` | `nil` |
+| String | `["a", "b", "c"], "b"` | `1` |
 
 > [!info]- Solution 1: Loop
 > ```swift
@@ -98,17 +99,18 @@ func linearSearch<T: Equatable>(_ arr: [T], _ target: T) -> Int?
 > ```
 
 ### 2. Find All Occurrences
-Return an array of all indices where the target appears.
+
+Given an array and a target value, return an array containing all indices where the target appears.
 
 ```swift
 func findAll<T: Equatable>(_ arr: [T], _ target: T) -> [Int]
 ```
 
-| Input | Output |
-|:------|:-------|
-| `[1, 2, 3, 2, 4], 2` | `[1, 3]` |
-| `[1, 2, 3], 5` | `[]` |
-| `["a", "a", "a"], "a"` | `[0, 1, 2]` |
+| Example | Input | Output |
+|:--------|:------|:-------|
+| Basic | `[1, 2, 3, 2, 4], 2` | `[1, 3]` |
+| Not Found | `[1, 2, 3], 5` | `[]` |
+| String | `["a", "a", "a"], "a"` | `[0, 1, 2]` |
 
 > [!info]- Solution 1: Loop
 > ```swift
@@ -140,17 +142,18 @@ func findAll<T: Equatable>(_ arr: [T], _ target: T) -> [Int]
 > ```
 
 ### 3. Count Occurrences
-Return how many times the target appears in the array.
+
+Given an array and a target value, return the number of times the target appears in the array.
 
 ```swift
 func countOccurrences<T: Equatable>(_ arr: [T], _ target: T) -> Int
 ```
 
-| Input | Output |
-|:------|:-------|
-| `[1, 2, 3, 2, 4], 2` | `2` |
-| `[1, 2, 3], 5` | `0` |
-| `["a", "a", "a"], "a"` | `3` |
+| Example | Input | Output |
+|:--------|:------|:-------|
+| Basic | `[1, 2, 3, 2, 4], 2` | `2` |
+| Not Found | `[1, 2, 3], 5` | `0` |
+| String | `["a", "a", "a"], "a"` | `3` |
 
 > [!info]- Solution 1: Loop
 > ```swift
@@ -182,17 +185,18 @@ func countOccurrences<T: Equatable>(_ arr: [T], _ target: T) -> Int
 > ```
 
 ### 4. Check If Exists
-Return `true` if the target exists in the array.
+
+Given an array and a target value, return `true` if the target exists in the array, `false` otherwise.
 
 ```swift
 func exists<T: Equatable>(_ arr: [T], _ target: T) -> Bool
 ```
 
-| Input | Output |
-|:------|:-------|
-| `[1, 2, 3], 2` | `true` |
-| `[1, 2, 3], 5` | `false` |
-| `["a", "b"], "c"` | `false` |
+| Example | Input | Output |
+|:--------|:------|:-------|
+| Found | `[1, 2, 3], 2` | `true` |
+| Not Found | `[1, 2, 3], 5` | `false` |
+| String | `["a", "b"], "c"` | `false` |
 
 > [!info]- Solution 1: Loop
 > ```swift
@@ -217,17 +221,18 @@ func exists<T: Equatable>(_ arr: [T], _ target: T) -> Bool
 > ```
 
 ### 5. Find Last Occurrence
-Return the index of the last occurrence of the target.
+
+Given an array and a target value, return the index of the last occurrence of the target, or `nil` if not found.
 
 ```swift
 func findLast<T: Equatable>(_ arr: [T], _ target: T) -> Int?
 ```
 
-| Input | Output |
-|:------|:-------|
-| `[1, 2, 3, 2, 4], 2` | `3` |
-| `[1, 2, 3], 5` | `nil` |
-| `["a"], "a"` | `0` |
+| Example | Input | Output |
+|:--------|:------|:-------|
+| Basic | `[1, 2, 3, 2, 4], 2` | `3` |
+| Not Found | `[1, 2, 3], 5` | `nil` |
+| Single | `["a"], "a"` | `0` |
 
 > [!info]- Solution 1: Loop
 > ```swift
@@ -258,22 +263,23 @@ func findLast<T: Equatable>(_ arr: [T], _ target: T) -> Int?
 > ```
 
 ### 6. Find Minimum
-Return the index of the minimum element.
+
+Given an array of elements, return the index of the minimum element.
 
 ```swift
-func findMin<T: Comparable>(_ arr: [T]) -> Int?
+func findMin<T: Comparable>(_ arr: [T]) -> Int
 ```
 
-| Input | Output |
-|:------|:-------|
-| `[3, 1, 4, 1, 5], 3` | `1` |
-| `[5]` | `0` |
-| `[1, 2, 3]` | `0` |
+| Example | Input | Output |
+|:--------|:------|:-------|
+| Basic | `[3, 1, 4, 1, 5]` | `1` |
+| Single | `[5]` | `0` |
+| Already Sorted | `[1, 2, 3]` | `0` |
 
 > [!info]- Solution 1: Loop
 > ```swift
-> func findMin<T: Comparable>(_ arr: [T]) -> Int? {
->     guard !arr.isEmpty else { return nil }
+> func findMin<T: Comparable>(_ arr: [T]) -> Int {
+>     guard !arr.isEmpty else { return -1 }
 >     var minIndex = 0
 >     for i in 1..<arr.count {
 >         if arr[i] < arr[minIndex] {
@@ -286,13 +292,12 @@ func findMin<T: Comparable>(_ arr: [T]) -> Int?
 
 > [!info]- Solution 2: Min Element
 > ```swift
-> func findMin<T: Comparable>(_ arr: [T]) -> Int? {
->     guard let minVal = arr.min() else { return nil }
->     return arr.firstIndex(of: minVal)
+> func findMin<T: Comparable>(_ arr: [T]) -> Int {
+>     arr.enumerated().min(by: { $0.element < $1.element })?.offset ?? -1
 > }
 > ```
 
 > [!info]- Solution 3: Min Index
 > ```swift
-> arr.indices.min(by: { arr[$0] < arr[$1] })
+> arr.indices.min(by: { arr[$0] < arr[$1] }) ?? -1
 > ```

@@ -82,17 +82,18 @@ numbers.firstIndex(where: { $0 >= target })
 ## Challenges
 
 ### 1. Find Element
-Return the index of the target in a sorted array, or `nil` if not found.
+
+Given a sorted array and a target value, return the index of the target, or `nil` if not found.
 
 ```swift
 func binarySearch<T: Comparable>(_ arr: [T], _ target: T) -> Int?
 ```
 
-| Input | Output |
-|:------|:-------|
-| `[1, 3, 5, 7, 9], 7` | `3` |
-| `[1, 3, 5, 7, 9], 4` | `nil` |
-| `["a", "c", "e"], "c"` | `1` |
+| Example | Input | Output |
+|:--------|:------|:-------|
+| Basic | `[1, 3, 5, 7, 9], 7` | `3` |
+| Not Found | `[1, 3, 5, 7, 9], 4` | `nil` |
+| String | `["a", "c", "e"], "c"` | `1` |
 
 > [!info]- Solution 1: Iterative
 > ```swift
@@ -138,17 +139,18 @@ func binarySearch<T: Comparable>(_ arr: [T], _ target: T) -> Int?
 > ```
 
 ### 2. Search Insert Position
-Return the index where target would be inserted in a sorted array.
+
+Given a sorted array and a target value, return the index where the target would be inserted to maintain sorted order.
 
 ```swift
 func searchInsert<T: Comparable>(_ nums: [T], _ target: T) -> Int
 ```
 
-| Input | Output |
-|:------|:-------|
-| `[1, 3, 5, 6], 5` | `2` |
-| `[1, 3, 5, 6], 2` | `1` |
-| `[1, 3, 5, 6], 7` | `4` |
+| Example | Input | Output |
+|:--------|:------|:-------|
+| Found | `[1, 3, 5, 6], 5` | `2` |
+| Insert Middle | `[1, 3, 5, 6], 2` | `1` |
+| Insert End | `[1, 3, 5, 6], 7` | `4` |
 
 > [!info]- Solution 1: Binary Search
 > ```swift
@@ -174,17 +176,18 @@ func searchInsert<T: Comparable>(_ nums: [T], _ target: T) -> Int
 > ```
 
 ### 3. Find First Occurrence
-Return the index of the first occurrence of target in a sorted array with duplicates.
+
+Given a sorted array with duplicates and a target value, return the index of the first occurrence of the target, or `nil` if not found.
 
 ```swift
 func findFirst<T: Comparable>(_ arr: [T], _ target: T) -> Int?
 ```
 
-| Input | Output |
-|:------|:-------|
-| `[1, 2, 3, 3, 3, 4], 3` | `2` |
-| `[1, 2, 3, 3, 3, 4], 5` | `nil` |
-| `[1, 2, 3, 4], 1` | `0` |
+| Example | Input | Output |
+|:--------|:------|:-------|
+| Basic | `[1, 2, 3, 3, 3, 4], 3` | `2` |
+| Not Found | `[1, 2, 3, 3, 3, 4], 5` | `nil` |
+| Single Match | `[1, 2, 3, 4], 1` | `0` |
 
 > [!info]- Solution 1: Search Left
 > ```swift
@@ -227,17 +230,18 @@ func findFirst<T: Comparable>(_ arr: [T], _ target: T) -> Int?
 > ```
 
 ### 4. Find Last Occurrence
-Return the index of the last occurrence of target in a sorted array with duplicates.
+
+Given a sorted array with duplicates and a target value, return the index of the last occurrence of the target, or `nil` if not found.
 
 ```swift
 func findLast<T: Comparable>(_ arr: [T], _ target: T) -> Int?
 ```
 
-| Input | Output |
-|:------|:-------|
-| `[1, 2, 3, 3, 3, 4], 3` | `4` |
-| `[1, 2, 3, 3, 3, 4], 5` | `nil` |
-| `[1, 2, 3, 4], 4` | `3` |
+| Example | Input | Output |
+|:--------|:------|:-------|
+| Basic | `[1, 2, 3, 3, 3, 4], 3` | `4` |
+| Not Found | `[1, 2, 3, 3, 3, 4], 5` | `nil` |
+| Single Match | `[1, 2, 3, 4], 4` | `3` |
 
 > [!info]- Solution 1: Search Right
 > ```swift
@@ -280,17 +284,18 @@ func findLast<T: Comparable>(_ arr: [T], _ target: T) -> Int?
 > ```
 
 ### 5. Find Floor
-Return the index of the largest element less than or equal to target.
+
+Given a sorted array and a target value, return the index of the largest element less than or equal to the target, or `nil` if no such element exists.
 
 ```swift
 func findFloor<T: Comparable>(_ arr: [T], _ target: T) -> Int?
 ```
 
-| Input | Output |
-|:------|:-------|
-| `[1, 2, 4, 6, 8], 5` | `2` |
-| `[1, 2, 4, 6, 8], 1` | `0` |
-| `[1, 2, 4, 6, 8], 0` | `nil` |
+| Example | Input | Output |
+|:--------|:------|:-------|
+| Basic | `[1, 2, 4, 6, 8], 5` | `2` |
+| Exact Match | `[1, 2, 4, 6, 8], 1` | `0` |
+| No Match | `[1, 2, 4, 6, 8], 0` | `nil` |
 
 > [!info]- Solution
 > ```swift
@@ -315,17 +320,18 @@ func findFloor<T: Comparable>(_ arr: [T], _ target: T) -> Int?
 > ```
 
 ### 6. Find Ceiling
-Return the index of the smallest element greater than or equal to target.
+
+Given a sorted array and a target value, return the index of the smallest element greater than or equal to the target, or `nil` if no such element exists.
 
 ```swift
 func findCeiling<T: Comparable>(_ arr: [T], _ target: T) -> Int?
 ```
 
-| Input | Output |
-|:------|:-------|
-| `[1, 2, 4, 6, 8], 5` | `3` |
-| `[1, 2, 4, 6, 8], 8` | `4` |
-| `[1, 2, 4, 6, 8], 10` | `nil` |
+| Example | Input | Output |
+|:--------|:------|:-------|
+| Basic | `[1, 2, 4, 6, 8], 5` | `3` |
+| Exact Match | `[1, 2, 4, 6, 8], 8` | `4` |
+| No Match | `[1, 2, 4, 6, 8], 10` | `nil` |
 
 > [!info]- Solution 1: Binary Search
 > ```swift
@@ -353,17 +359,18 @@ func findCeiling<T: Comparable>(_ arr: [T], _ target: T) -> Int?
 > ```
 
 ### 7. Search in Rotated Array
-Search for target in a rotated sorted array. Return `true` if found.
+
+Given a sorted array that has been rotated and a target value, return `true` if the target exists in the array, `false` otherwise.
 
 ```swift
 func searchRotated<T: Comparable>(_ nums: [T], _ target: T) -> Bool
 ```
 
-| Input | Output |
-|:------|:-------|
-| `[4, 5, 6, 7, 0, 1, 2], 0` | `true` |
-| `[4, 5, 6, 7, 0, 1, 2], 3` | `false` |
-| `[1], 1` | `true` |
+| Example | Input | Output |
+|:--------|:------|:-------|
+| Found | `[4, 5, 6, 7, 0, 1, 2], 0` | `true` |
+| Not Found | `[4, 5, 6, 7, 0, 1, 2], 3` | `false` |
+| Single | `[1], 1` | `true` |
 
 > [!info]- Solution 1: Single Binary Search
 > ```swift
@@ -434,17 +441,18 @@ func searchRotated<T: Comparable>(_ nums: [T], _ target: T) -> Bool
 > ```
 
 ### 8. Find Minimum in Rotated Array
-Find the minimum element in a rotated sorted array.
+
+Given a sorted array that has been rotated, find the minimum element in the array.
 
 ```swift
 func findMinRotated<T: Comparable>(_ nums: [T]) -> T
 ```
 
-| Input | Output |
-|:------|:-------|
-| `[3, 4, 5, 1, 2]` | `1` |
-| `[4, 5, 6, 7, 0, 1, 2]` | `0` |
-| `[1]` | `1` |
+| Example | Input | Output |
+|:--------|:------|:-------|
+| Basic | `[3, 4, 5, 1, 2]` | `1` |
+| Multiple Rotations | `[4, 5, 6, 7, 0, 1, 2]` | `0` |
+| Not Rotated | `[1]` | `1` |
 
 > [!info]- Solution 1: Binary Search
 > ```swift

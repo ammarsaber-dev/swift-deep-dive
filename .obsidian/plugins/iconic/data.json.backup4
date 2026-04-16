@@ -1,14 +1,14 @@
 {
   "biggerIcons": "mobile",
   "clickableIcons": "desktop",
-  "showAllFileIcons": false,
-  "showAllFolderIcons": false,
+  "showAllFileIcons": true,
+  "showAllFolderIcons": true,
   "minimalFolderIcons": true,
   "showMarkdownTabIcons": true,
   "showTitleIcons": true,
-  "showTagPillIcons": false,
+  "showTagPillIcons": true,
   "showMenuActions": true,
-  "showSuggestionIcons": false,
+  "showSuggestionIcons": true,
   "showQuickSwitcherIcons": true,
   "showMoveFileIcons": true,
   "showItemName": "desktop",
@@ -29,7 +29,51 @@
   },
   "appIcons": {},
   "tabIcons": {},
-  "fileIcons": {},
+  "fileIcons": {
+    "03. DSA": {
+      "icon": "lucide-network",
+      "color": "gray",
+      "unsynced": [
+        "9853cfd8b3c9542b"
+      ]
+    },
+    "03. DSA/Algorithms": {
+      "icon": "lucide-axis-3d",
+      "unsynced": [
+        "9853cfd8b3c9542b"
+      ]
+    },
+    "03. DSA/Algorithms/Searching": {
+      "icon": "lucide-search",
+      "unsynced": [
+        "9853cfd8b3c9542b"
+      ]
+    },
+    "03. DSA/Algorithms/Searching/Linear Search/Challenges": {
+      "icon": "question-mark-glyph",
+      "unsynced": [
+        "9853cfd8b3c9542b"
+      ]
+    },
+    "03. DSA/Algorithms/Sorting": {
+      "icon": "lucide-sort-desc",
+      "unsynced": [
+        "9853cfd8b3c9542b"
+      ]
+    },
+    "03. DSA/Algorithms/Techniques": {
+      "icon": "lucide-hammer",
+      "unsynced": [
+        "9853cfd8b3c9542b"
+      ]
+    },
+    "03. DSA/Data Structures": {
+      "icon": "lucide-database",
+      "unsynced": [
+        "9853cfd8b3c9542b"
+      ]
+    }
+  },
   "bookmarkIcons": {},
   "tagIcons": {},
   "propertyIcons": {},
