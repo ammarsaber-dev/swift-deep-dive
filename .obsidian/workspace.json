@@ -13,8 +13,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
-                "mode": "source",
+                "file": "03. Algorithms/Searching/01. Linear Search/README.md",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
@@ -78,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 395.5
+    "width": 395.5,
+    "collapsed": true
   },
   "right": {
     "id": "d9786611975ba502",
@@ -186,23 +187,24 @@
   },
   "active": "124a7491500fbff0",
   "lastOpenFiles": [
+    "test/binary_search.swift",
+    "test/linear_search.swift",
+    "test/Tests/testTests/testTests.swift",
+    "test/Tests/testTests",
+    "test/Tests",
+    "test/Sources/test/test.swift",
+    "test/Sources/test",
+    "test/Sources",
+    "test/Package.swift",
+    "test",
+    "Solutions/01. Linear Search/countOccurrences.swift",
+    "README.md",
     "03. DSA/Algorithms/Searching/02. Binary Search/README.md",
     "04. Data Structures/README.md",
-    "04. Data Structures",
     "03. Algorithms/Searching/02. Binary Search/README.md",
     "03. Algorithms/Searching/01. Linear Search/README.md",
-    "03. Algorithms/Sorting/Selection Sort",
-    "03. Algorithms/Sorting/Insertion Sort",
-    "03. Algorithms/Sorting/Bubble Sort",
-    "03. Algorithms/Searching/02. Binary Search",
-    "03. Algorithms/Searching/01. Linear Search",
-    "03. Algorithms/Techniques",
-    "03. Algorithms/Sorting",
-    "03. Algorithms/Searching",
     "03. Algorithms/README.md",
-    "03. Algorithms",
     "03. DSA/Algorithms/Searching/01. Linear Search/README.md",
-    "README.md",
     "03. DSA/Algorithms/Searching/Linear Search/Untitled.md",
     "03. DSA/Algorithms/README.md",
     "02. Advanced Swift/README.md",

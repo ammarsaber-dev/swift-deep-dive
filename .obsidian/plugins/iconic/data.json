@@ -29,15 +29,7 @@
   },
   "appIcons": {},
   "tabIcons": {},
-  "fileIcons": {
-    "03. DSA": {
-      "icon": "lucide-network",
-      "color": "gray",
-      "unsynced": [
-        "9853cfd8b3c9542b"
-      ]
-    }
-  },
+  "fileIcons": {},
   "bookmarkIcons": {},
   "tagIcons": {},
   "propertyIcons": {},
