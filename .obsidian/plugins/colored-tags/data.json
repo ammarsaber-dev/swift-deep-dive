@@ -10,10 +10,12 @@
     "highTextContrast": false
   },
   "knownTags": {
-    "algorithm": 5,
-    "array": 3,
-    "brute-force": 4,
-    "searching": 2
+    "algorithm": 1,
+    "array": 4,
+    "brute-force": 5,
+    "divide-and-conquer": 6,
+    "searching": 3,
+    "sorted": 7
   },
   "tagColors": {},
   "_version": 4
