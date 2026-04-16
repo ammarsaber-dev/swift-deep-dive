@@ -11,16 +11,18 @@ A deep dive into pure Swift, exploring core mechanics, memory management, and Da
 
 ### 01. Core Swift
 ### 02. Advanced Swift
-### 03. Data Structures & Algorithms
+### 03. Algorithms
+### 04. Data Structures
 
 ---
 
-## 03. Data Structures & Algorithms
+## Structure
 
 ```
-DSA/
-├── Data Structures/
-├── Algorithms/
+swift-deep-dive/
+├── 01. Core Swift/
+├── 02. Advanced Swift/
+├── 03. Algorithms/
 │   ├── Searching/
 │   │   ├── 01. Linear Search
 │   │   └── 02. Binary Search
@@ -29,6 +31,7 @@ DSA/
 │   │   ├── Insertion Sort
 │   │   └── Selection Sort
 │   └── Techniques/
+└── 04. Data Structures/
 ```
 
 ---
@@ -39,15 +42,16 @@ DSA/
 
 | Category | Algorithm | Status |
 |:---------|:---------|:-------|
-| Searching | [Linear Search](./03.%20DSA/Algorithms/Searching/01.%20Linear%20Search/) | Done |
-| Searching | [Binary Search](./03.%20DSA/Algorithms/Searching/02.%20Binary%20Search/) | Done |
-| Sorting | [Bubble Sort](./03.%20DSA/Algorithms/Sorting/Bubble%20Sort/) | Coming Soon |
-| Sorting | [Insertion Sort](./03.%20DSA/Algorithms/Sorting/Insertion%20Sort/) | Coming Soon |
-| Sorting | [Selection Sort](./03.%20DSA/Algorithms/Sorting/Selection%20Sort/) | Coming Soon |
+| Searching | [Linear Search](./03.%20Algorithms/Searching/01.%20Linear%20Search/) | Done |
+| Searching | [Binary Search](./03.%20Algorithms/Searching/02.%20Binary%20Search/) | Done |
+| Sorting | [Bubble Sort](./03.%20Algorithms/Sorting/Bubble%20Sort/) | Coming Soon |
+| Sorting | [Insertion Sort](./03.%20Algorithms/Sorting/Insertion%20Sort/) | Coming Soon |
+| Sorting | [Selection Sort](./03.%20Algorithms/Sorting/Selection%20Sort/) | Coming Soon |
 
 **Data Structures**
-| | |
-|:---|:---|
+
+| | Status |
+|:---|:-------|
 | Array | Coming Soon |
 | Linked List | Coming Soon |
 | Stack | Coming Soon |

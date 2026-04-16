@@ -1,0 +1,8 @@
+# Obsidian vault settings (local only)
+.obsidian/
+
+# Your personal solutions (local only, not shared)
+Solutions/
+
+# macOS
+.DS_Store
