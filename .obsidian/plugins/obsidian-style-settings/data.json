@@ -21,6 +21,5 @@
   "maple-editor@@table-remove-line-before": true,
   "maple-editor@@table-style": "table-style-default",
   "maple-editor@@table-round": true,
-  "maple-editor@@table-full": true,
-  "maple-basic@@color-scheme": "color-use-default"
+  "maple-editor@@table-full": true
 }
