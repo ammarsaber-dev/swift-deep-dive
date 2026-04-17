@@ -2,37 +2,104 @@
 
 #algorithm #searching #array #brute-force
 
-> [!contents]+ Contents
-> - [[#How It Works]]
-> - [[#Performance Complexity]]
-> - [[#Implementation]]
-> - [[#Challenges]]
-
-Go through each element, one by one, until you find it.
+> No preconditions. No setup. Just walk and look.
 
 ![](https://turboyourcode.s3.amazonaws.com/media/Linear_Search.gif)
 
+---
+
+## Contents
+
+- [[#The Core Idea]]
+- [[#How It Works]]
+- [[#Performance Complexity]]
+- [[#When to Actually Use It]]
+- [[#Edge Cases to Know]]
+- [[#Implementation]]
+- [[#The Swift Built-in]]
+- [[#Linear vs Binary Search]]
+
+---
+
+## The Core Idea
+
+Linear search is the simplest searching algorithm — and often the most appropriate one. You scan every element in order until you find your target or exhaust the array. No sorting required. No random access required. No setup cost.
+
+It gets dismissed as the "slow" option, but that framing misses the point. Linear search shines precisely in situations where [[Binary Search]] can't even start.
+
+---
+
 ## How It Works
 
-1. Start at the first element.
-2. Is it the target? **Yes** → return index. **No** → next element.
-3. Repeat until found or end of array.
+1. Start at index `0`.
+2. Compare the current element to the target.
+    - Match → return the current index.
+    - No match → advance to `index + 1`.
+3. Repeat until found or the array ends → return `nil`.
+
+No tricks. No invariants to maintain. The simplicity is a feature.
+
+---
 
 ## Performance Complexity
 
-| Case | Time | Space |
-|:-----|:-----|:------|
-| Best | O(1) | O(1) |
-| Worst | O(n) | O(1) |
-| Average | O(n) | O(1) |
+|Case|Time|Space|When|
+|---|---|---|---|
+|Best|O(1)|O(1)|Target is the first element|
+|Worst|O(n)|O(1)|Target is the last element, or not present|
+|Average|O(n/2) = O(n)|O(1)|Target is somewhere in the middle|
+
+The average case is technically O(n/2) — you'll check roughly half the elements on average before finding your target — but constants disappear in Big O notation, so it's written O(n).
+
+> [!tip] If you're searching the **same unsorted array repeatedly**, consider sorting it once (O(n log n)) and switching to binary search (O(log n) per query). The upfront cost pays off quickly.
+
+> [!note] The recursive version has O(n) _space_ complexity due to call stack depth — one frame per element in the worst case. For large arrays, this risks a stack overflow. Always prefer the iterative version in practice.
+
+---
+
+## When to Actually Use It
+
+Linear search isn't a fallback — it's the right tool in specific situations:
+
+**Use linear search when:**
+
+- The array is **unsorted** and sorting it isn't worth it (one-off search, small data)
+- The collection doesn't support **random access** — linked lists, streams, generators
+- You're searching for a **non-comparable** property (e.g. first element where `user.isActive == true`)
+- The array is **small** (under ~20 elements — the binary search overhead isn't worth it)
+- You need the **first match** of a predicate, not an exact value
+
+**Don't use linear search when:**
+
+- The array is already **sorted** — use [Binary Search](03.%20Algorithms/Searching/02.%20Binary%20Search/README.md)
+- You're running **many searches** on the same large dataset — sort once, search fast
+
+---
+
+## Edge Cases to Know
+
+|Scenario|Expected|Notes|
+|---|---|---|
+|Empty array `[]`|Return `nil`|Loop never executes — handled automatically|
+|Target not present|Return `nil`|Loop exhausts without returning|
+|Duplicate elements|Returns the **first** index|Unlike binary search, this behaviour is guaranteed|
+|Single element, matches|Return `0`|Fine|
+|Single element, no match|Return `nil`|Fine|
+
+The duplicate behaviour is worth noting: linear search always returns the _first_ occurrence, making it predictable in a way that basic binary search isn't.
+
+---
 
 ## Implementation
 
-**Iterative** — Time: `O(n)` | Space: `O(1)`
+### Iterative
+
+**Time: O(n) | Space: O(1)**
+
 ```swift
-func linearSearch(_ arr: [Int], _ key: Int) -> Int? {
+func linearSearch(_ arr: [Int], _ target: Int) -> Int? {
     for i in 0..<arr.count {
-        if arr[i] == key {
+        if arr[i] == target {
             return i
         }
     }
@@ -40,264 +107,84 @@ func linearSearch(_ arr: [Int], _ key: Int) -> Int? {
 }
 ```
 
-**Recursive** — Time: `O(n)` | Space: `O(n)` stack
+This is the form to default to. Clean, O(1) space, no risk of stack overflow.
+
+---
+
+### Iterative with `enumerated()` (more Swifty)
+
 ```swift
-func linearSearchRecursive(_ arr: [Int], _ key: Int, _ index: Int = 0) -> Int? {
-    guard index < arr.count else { return nil }
-    if arr[index] == key { return index }
-    return linearSearchRecursive(arr, key, index + 1)
+func linearSearch(_ arr: [Int], _ target: Int) -> Int? {
+    for (index, value) in arr.enumerated() {
+        if value == target {
+            return index
+        }
+    }
+    return nil
 }
 ```
 
-**Built-in** — Time: `O(n)`
-```swift
-numbers.firstIndex(where: { $0 == 5 })
-```
+Same complexity, but reads closer to intent — you're iterating elements, not managing an index manually.
 
-## Challenges
+---
 
-### 1. Find Element
+### Recursive
 
-Given an array of integers and a target value, return the index of the first occurrence of the target, or `nil` if not found.
+**Time: O(n) | Space: O(n) stack**
 
 ```swift
-func linearSearch<T: Equatable>(_ arr: [T], _ target: T) -> Int?
+func linearSearch(_ arr: [Int], _ target: Int, _ index: Int = 0) -> Int? {
+    guard index < arr.count else { return nil }
+    if arr[index] == target { return index }
+    return linearSearch(arr, target, index + 1)
+}
 ```
 
-| Example | Input | Output |
-|:--------|:------|:-------|
-| Basic | `[1, 2, 3, 4, 5], 3` | `2` |
-| Not Found | `[1, 2, 3, 4, 5], 6` | `nil` |
-| String | `["a", "b", "c"], "b"` | `1` |
+Elegant for understanding recursion, but each call adds a frame to the stack. For an array of 10,000 elements, that's 10,000 frames in the worst case — not suitable for production use on large inputs.
 
-> [!info]- Solution 1: Loop
-> ```swift
-> func linearSearch<T: Equatable>(_ arr: [T], _ target: T) -> Int? {
->     for i in 0..<arr.count {
->         if arr[i] == target {
->             return i
->         }
->     }
->     return nil
-> }
-> ```
+---
 
-> [!info]- Solution 2: Enumerated
-> ```swift
-> func linearSearch<T: Equatable>(_ arr: [T], _ target: T) -> Int? {
->     guard !arr.isEmpty else { return nil }
->     for (index, element) in arr.enumerated() where element == target {
->         return index
->     }
->     return nil
-> }
-> ```
-
-> [!info]- Solution 3: Built-in
-> ```swift
-> arr.firstIndex(where: { $0 == target })
-> ```
-
-### 2. Find All Occurrences
-
-Given an array and a target value, return an array containing all indices where the target appears.
+### Generic Version
 
 ```swift
-func findAll<T: Equatable>(_ arr: [T], _ target: T) -> [Int]
+func linearSearch<T: Equatable>(_ arr: [T], _ target: T) -> Int? {
+    for (index, value) in arr.enumerated() {
+        if value == target {
+            return index
+        }
+    }
+    return nil
+}
 ```
 
-| Example | Input | Output |
-|:--------|:------|:-------|
-| Basic | `[1, 2, 3, 2, 4], 2` | `[1, 3]` |
-| Not Found | `[1, 2, 3], 5` | `[]` |
-| String | `["a", "a", "a"], "a"` | `[0, 1, 2]` |
+Note the constraint: only `Equatable` is needed here (not `Comparable`). This is _weaker_ than binary search's `Comparable`requirement — linear search works on any type that can be checked for equality, even types with no defined ordering.
 
-> [!info]- Solution 1: Loop
-> ```swift
-> func findAll<T: Equatable>(_ arr: [T], _ target: T) -> [Int] {
->     var indices: [Int] = []
->     for i in 0..<arr.count {
->         if arr[i] == target {
->             indices.append(i)
->         }
->     }
->     return indices
-> }
-> ```
+---
 
-> [!info]- Solution 2: Enumerated
-> ```swift
-> func findAll<T: Equatable>(_ arr: [T], _ target: T) -> [Int] {
->     var indices = [Int]()
->     for (index, element) in arr.enumerated() where element == target {
->         indices.append(index)
->     }
->     return indices
-> }
-> ```
-
-> [!info]- Solution 3: Filter/Map
-> ```swift
-> arr.indices.filter { arr[$0] == target }
-> ```
-
-### 3. Count Occurrences
-
-Given an array and a target value, return the number of times the target appears in the array.
+## The Swift Built-in
 
 ```swift
-func countOccurrences<T: Equatable>(_ arr: [T], _ target: T) -> Int
+// firstIndex(of:) — searches for an exact value. O(n).
+numbers.firstIndex(of: 5)
+
+// firstIndex(where:) — searches by predicate. O(n).
+numbers.firstIndex(where: { $0 > 10 })
+users.firstIndex(where: { $0.isAdmin })
 ```
 
-| Example | Input | Output |
-|:--------|:------|:-------|
-| Basic | `[1, 2, 3, 2, 4], 2` | `2` |
-| Not Found | `[1, 2, 3], 5` | `0` |
-| String | `["a", "a", "a"], "a"` | `3` |
+Both perform a linear scan. `firstIndex(of:)` requires `Equatable`; `firstIndex(where:)` accepts any predicate, making it the more flexible option for real-world searches.
 
-> [!info]- Solution 1: Loop
-> ```swift
-> func countOccurrences<T: Equatable>(_ arr: [T], _ target: T) -> Int {
->     var count = 0
->     for i in 0..<arr.count {
->         if arr[i] == target {
->             count += 1
->         }
->     }
->     return count
-> }
-> ```
+These are the idiomatic Swift way to do linear search — reach for them over a manual loop unless you have a specific reason not to.
 
-> [!info]- Solution 2: Enumerated
-> ```swift
-> func countOccurrences<T: Equatable>(_ arr: [T], _ target: T) -> Int {
->     var counter = 0
->     for ele in arr where ele == target {
->         counter += 1
->     }
->     return counter
-> }
-> ```
+---
 
-> [!info]- Solution 3: Filter Count
-> ```swift
-> arr.filter { $0 == target }.count
-> ```
+## Leetcode Problems
 
-### 4. Check If Exists
-
-Given an array and a target value, return `true` if the target exists in the array, `false` otherwise.
-
-```swift
-func exists<T: Equatable>(_ arr: [T], _ target: T) -> Bool
-```
-
-| Example | Input | Output |
-|:--------|:------|:-------|
-| Found | `[1, 2, 3], 2` | `true` |
-| Not Found | `[1, 2, 3], 5` | `false` |
-| String | `["a", "b"], "c"` | `false` |
-
-> [!info]- Solution 1: Loop
-> ```swift
-> func exists<T: Equatable>(_ arr: [T], _ target: T) -> Bool {
->     for i in 0..<arr.count {
->         if arr[i] == target {
->             return true
->         }
->     }
->     return false
-> }
-> ```
-
-> [!info]- Solution 2: Contains
-> ```swift
-> arr.contains(target)
-> ```
-
-> [!info]- Solution 3: First Index
-> ```swift
-> arr.firstIndex(where: { $0 == target }) != nil
-> ```
-
-### 5. Find Last Occurrence
-
-Given an array and a target value, return the index of the last occurrence of the target, or `nil` if not found.
-
-```swift
-func findLast<T: Equatable>(_ arr: [T], _ target: T) -> Int?
-```
-
-| Example | Input | Output |
-|:--------|:------|:-------|
-| Basic | `[1, 2, 3, 2, 4], 2` | `3` |
-| Not Found | `[1, 2, 3], 5` | `nil` |
-| Single | `["a"], "a"` | `0` |
-
-> [!info]- Solution 1: Loop
-> ```swift
-> func findLast<T: Equatable>(_ arr: [T], _ target: T) -> Int? {
->     var lastIndex: Int?
->     for i in 0..<arr.count {
->         if arr[i] == target {
->             lastIndex = i
->         }
->     }
->     return lastIndex
-> }
-> ```
-
-> [!info]- Solution 2: Reversed
-> ```swift
-> func findLast<T: Equatable>(_ arr: [T], _ target: T) -> Int? {
->     for (index, element) in arr.enumerated().reversed() where element == target {
->         return index
->     }
->     return nil
-> }
-> ```
-
-> [!info]- Solution 3: Last Index
-> ```swift
-> arr.lastIndex(where: { $0 == target })
-> ```
-
-### 6. Find Minimum
-
-Given an array of elements, return the index of the minimum element.
-
-```swift
-func findMin<T: Comparable>(_ arr: [T]) -> Int
-```
-
-| Example | Input | Output |
-|:--------|:------|:-------|
-| Basic | `[3, 1, 4, 1, 5]` | `1` |
-| Single | `[5]` | `0` |
-| Already Sorted | `[1, 2, 3]` | `0` |
-
-> [!info]- Solution 1: Loop
-> ```swift
-> func findMin<T: Comparable>(_ arr: [T]) -> Int {
->     guard !arr.isEmpty else { return -1 }
->     var minIndex = 0
->     for i in 1..<arr.count {
->         if arr[i] < arr[minIndex] {
->             minIndex = i
->         }
->     }
->     return minIndex
-> }
-> ```
-
-> [!info]- Solution 2: Min Element
-> ```swift
-> func findMin<T: Comparable>(_ arr: [T]) -> Int {
->     arr.enumerated().min(by: { $0.element < $1.element })?.offset ?? -1
-> }
-> ```
-
-> [!info]- Solution 3: Min Index
-> ```swift
-> arr.indices.min(by: { arr[$0] < arr[$1] }) ?? -1
-> ```
+|                         | Problem                                                                                                                 | Difficulty | Video Solution                                             |
+| ----------------------- | ----------------------------------------------------------------------------------------------------------------------- | ---------- | ---------------------------------------------------------- |
+| <input type="checkbox"> | [1295. Find Numbers with Even Number of Digits](https://leetcode.com/problems/find-numbers-with-even-number-of-digits/) | **Easy**   | [Watch Video](https://www.youtube.com/watch?v=HRp8mNJvLZ0) |
+| <input type="checkbox"> | [2089. Find Target Indices After Sorting Array](https://leetcode.com/problems/find-target-indices-after-sorting-array/) | **Easy**   | [Watch Video](https://www.youtube.com/watch?v=_tYhstE0u_A) |
+| <input type="checkbox"> | [1539. Kth Missing Positive Number](https://leetcode.com/problems/kth-missing-positive-number/)                         | **Easy**   | [Watch Video](https://www.youtube.com/watch?v=p0P1JNHAB-c) |
+| <input type="checkbox"> | [1672. Richest Customer Wealth](https://leetcode.com/problems/richest-customer-wealth/)                                 | **Easy**   | [Watch Video](https://www.youtube.com/watch?v=1PdfTbSTDXc) |
+| <input type="checkbox"> | [275. H-Index II](https://leetcode.com/problems/h-index-ii/)                                                            | **Medium** | [Watch Video](https://www.youtube.com/watch?v=m5igTaeo9Ik) |
+| <input type="checkbox"> | [162. Find Peak Element](https://leetcode.com/problems/find-peak-element/)                                              | **Medium** | [Watch Video](https://www.youtube.com/watch?v=RrGv2OPBl8U) |

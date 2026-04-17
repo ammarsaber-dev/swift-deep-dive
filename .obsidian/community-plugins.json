@@ -1,5 +1,6 @@
 [
-  "iconic",
   "colored-tags",
-  "obsidian-style-settings"
+  "shiki-highlighter",
+  "obsidian-style-settings",
+  "slash-commander"
 ]

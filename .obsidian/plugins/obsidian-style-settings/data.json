@@ -1,5 +1,26 @@
 {
   "Editor@@file-line-width": "750px",
   "Editor@@img-center-align": true,
-  "Editor@@img-darken": false
+  "Editor@@img-darken": false,
+  "Components@@tab-autohide": true,
+  "maple-basic@@color-dark-dim-disable": false,
+  "maple-basic@@color-modify-bg-light": false,
+  "maple-workspace@@outline-enable": false,
+  "maple-editor@@setting-hr-icon": "◉",
+  "maple-editor@@quote-mark": true,
+  "maple-editor@@quote-outline-style": "quote-border",
+  "maple-editor@@code-preview-bg": false,
+  "maple-editor@@tag-style": "tag-outline",
+  "maple-editor@@tag-click-to-edit": true,
+  "maple-workspace@@explorer-title-wrap": true,
+  "maple-workspace@@explorer-folder-bold": false,
+  "maple-workspace@@status-bar-style-center": false,
+  "maple-basic@@app-layout-card-border": false,
+  "maple-workspace@@setting-tab-stack-header-width": 40,
+  "maple-workspace@@tab-show-close": "tab-show-close-default",
+  "maple-editor@@table-remove-line-before": true,
+  "maple-editor@@table-style": "table-style-default",
+  "maple-editor@@table-round": true,
+  "maple-editor@@table-full": true,
+  "maple-basic@@color-scheme": "color-use-default"
 }

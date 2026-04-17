@@ -4,17 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "c0678bba53bd216c",
+        "id": "dfc92677090f420f",
         "type": "tabs",
         "children": [
           {
-            "id": "124a7491500fbff0",
+            "id": "2bbc89ca1ac8af68",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "03. Algorithms/Searching/02. Binary Search/README.md",
-                "mode": "preview",
+                "file": "03. Algorithms/Searching/01. Linear Search/README.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
@@ -53,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:#searching",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -78,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 395.5,
-    "collapsed": true
+    "width": 328
   },
   "right": {
     "id": "d9786611975ba502",
@@ -95,8 +94,8 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "03. DSA/Algorithms/Searching/Linear Search/README.md",
-                "collapseAll": false,
+                "file": "03. Algorithms/Searching/01. Linear Search/README.md",
+                "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
@@ -157,7 +156,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "03. DSA/Algorithms/Searching/Linear Search/README.md",
+                "file": "03. Algorithms/Searching/01. Linear Search/README.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -166,12 +165,12 @@
               "title": "Outline of README"
             }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -181,29 +180,27 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "bases:Create new base": false,
-      "iconic:Open rulebook": false
+      "bases:Create new base": false
     }
   },
-  "active": "124a7491500fbff0",
+  "active": "2bbc89ca1ac8af68",
   "lastOpenFiles": [
+    "03. Algorithms/Searching/02. Binary Search/README.md",
+    "03. Algorithms/Searching/01. Linear Search/README.md",
+    "Searching/02. Binary Search",
+    "Searching",
+    "03. Algorithms/README.md",
+    "My Solutions/02. Binary Search/findFloor.swift",
+    "My Solutions/02. Binary Search/findFloor.swif",
+    "My Solutions/02. Binary Search/findLastOccurrence.swift",
+    "My Solutions/02. Binary Search/findFirstOccurrence.swift",
+    "My Solutions/02. Binary Search/findFIrstOccurrence.swift",
     "My Solutions/02. Binary Search/searchInsertPosition.swift",
     "My Solutions/02. Binary Search/findElement.swift",
-    "03. Algorithms/README.md",
-    "03. Algorithms/Searching/02. Binary Search/README.md",
     "03. Algorithms/Searching/README.md",
     "03. Algorithms/Sorting/README.md",
     "README.md",
-    "03. Algorithms/Searching/01. Linear Search/README.md",
     "My Solutions/01. Linear Search/findMinimum.swift",
-    "My Solutions/01. Linear Search/findLastOccurrence.swift",
-    "My Solutions/01. Linear Search/checkIfExists.swift",
-    "test/binary_search.swift",
-    "test/linear_search.swift",
-    "test/Tests/testTests/testTests.swift",
-    "test/Tests/testTests",
-    "test/Tests",
-    "test/Sources/test/test.swift",
     "03. DSA/Algorithms/Searching/02. Binary Search/README.md",
     "04. Data Structures/README.md",
     "03. DSA/Algorithms/Searching/01. Linear Search/README.md",

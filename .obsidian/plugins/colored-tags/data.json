@@ -14,7 +14,8 @@
     "array": 4,
     "brute-force": 5,
     "divide-and-conquer": 6,
-    "searching": 3,
+    "search": 8,
+    "searching": 9,
     "sorted": 7
   },
   "tagColors": {},
