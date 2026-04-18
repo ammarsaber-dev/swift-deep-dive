@@ -122,6 +122,13 @@ func linearSearch(_ arr: [Int], _ target: Int) -> Int? {
     }
     return nil
 }
+
+func linearSearch2(_ arr: [Int], _ target: Int) -> Int? {
+    for (index, value) in arr.enumerated() where value == target {
+            return index
+    }
+    return nil
+}
 ```
 
 Same complexity, but reads closer to intent — you're iterating elements, not managing an index manually.
@@ -180,11 +187,11 @@ These are the idiomatic Swift way to do linear search — reach for them over a 
 
 ## Leetcode Problems
 
-|                         | Problem                                                                                                                 | Difficulty | Video Solution                                             |
-| ----------------------- | ----------------------------------------------------------------------------------------------------------------------- | ---------- | ---------------------------------------------------------- |
-| <input type="checkbox"> | [1295. Find Numbers with Even Number of Digits](https://leetcode.com/problems/find-numbers-with-even-number-of-digits/) | **Easy**   | [Watch Video](https://www.youtube.com/watch?v=HRp8mNJvLZ0) |
-| <input type="checkbox"> | [2089. Find Target Indices After Sorting Array](https://leetcode.com/problems/find-target-indices-after-sorting-array/) | **Easy**   | [Watch Video](https://www.youtube.com/watch?v=_tYhstE0u_A) |
-| <input type="checkbox"> | [1539. Kth Missing Positive Number](https://leetcode.com/problems/kth-missing-positive-number/)                         | **Easy**   | [Watch Video](https://www.youtube.com/watch?v=p0P1JNHAB-c) |
-| <input type="checkbox"> | [1672. Richest Customer Wealth](https://leetcode.com/problems/richest-customer-wealth/)                                 | **Easy**   | [Watch Video](https://www.youtube.com/watch?v=1PdfTbSTDXc) |
-| <input type="checkbox"> | [275. H-Index II](https://leetcode.com/problems/h-index-ii/)                                                            | **Medium** | [Watch Video](https://www.youtube.com/watch?v=m5igTaeo9Ik) |
-| <input type="checkbox"> | [162. Find Peak Element](https://leetcode.com/problems/find-peak-element/)                                              | **Medium** | [Watch Video](https://www.youtube.com/watch?v=RrGv2OPBl8U) |
+|                                               | Problem                                                                                                                 | Difficulty | Video Solution                                             |
+| --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ---------- | ---------------------------------------------------------- |
+| <input type="checkbox" checked id="324443"> | [1295. Find Numbers with Even Number of Digits](https://leetcode.com/problems/find-numbers-with-even-number-of-digits/) | **Easy**   | [Watch Video](https://www.youtube.com/watch?v=HRp8mNJvLZ0) |
+| <input type="checkbox" checked id="ca6fa3"> | [2089. Find Target Indices After Sorting Array](https://leetcode.com/problems/find-target-indices-after-sorting-array/) | **Easy**   | [Watch Video](https://www.youtube.com/watch?v=_tYhstE0u_A) |
+| <input type="checkbox" checked id="0baab0"> | [1539. Kth Missing Positive Number](https://leetcode.com/problems/kth-missing-positive-number/)                         | **Easy**   | [Watch Video](https://www.youtube.com/watch?v=p0P1JNHAB-c) |
+| <input type="checkbox" checked id="c5e7f6"> | [1672. Richest Customer Wealth](https://leetcode.com/problems/richest-customer-wealth/)                                 | **Easy**   | [Watch Video](https://www.youtube.com/watch?v=1PdfTbSTDXc) |
+| <input type="checkbox" unchecked id="969c99"> | [275. H-Index II](https://leetcode.com/problems/h-index-ii/)                                                            | **Medium** | [Watch Video](https://www.youtube.com/watch?v=m5igTaeo9Ik) |
+| <input type="checkbox" unchecked id="ba8950"> | [162. Find Peak Element](https://leetcode.com/problems/find-peak-element/)                                              | **Medium** | [Watch Video](https://www.youtube.com/watch?v=RrGv2OPBl8U) |
