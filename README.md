@@ -5,6 +5,9 @@ A deep dive into pure Swift, exploring core mechanics, memory management, and Da
 > [!tip]
 > Open in [Obsidian](https://obsidian.md/) for better experience.
 
+> [!info]
+> For Problem Solving & Leetcode solutions you can visit [My Repo](https://github.com/ammarsaber-dev/problem-solving).
+
 ## Contents
 
 ### 01. Core Swift
