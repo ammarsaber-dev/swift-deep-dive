@@ -2,10 +2,10 @@
 
 A deep dive into pure Swift, exploring core mechanics, memory management, and Data Structures & Algorithms.
 
-> [!tip]
+> [!TIP]
 > Open in [Obsidian](https://obsidian.md/) for better experience.
 
-> [!info]
+> [!NOTE]
 > For Problem Solving & Leetcode solutions you can visit [My Repo](https://github.com/ammarsaber-dev/problem-solving).
 
 ## Contents
