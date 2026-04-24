@@ -4,17 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "dfc92677090f420f",
+        "id": "1e0edc80fb36b992",
         "type": "tabs",
         "children": [
           {
-            "id": "aecb2d625613087f",
+            "id": "a3cbe6e4c54acdc1",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
-                "mode": "source",
+                "file": "03. Algorithms/Techniques/Frequency Array/README.md",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
@@ -156,7 +156,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "README.md",
+                "file": "03. Algorithms/Techniques/Frequency Array/README.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -183,13 +183,15 @@
       "bases:Create new base": false
     }
   },
-  "active": "aecb2d625613087f",
+  "active": "a3cbe6e4c54acdc1",
   "lastOpenFiles": [
-    "03. Algorithms/Searching/01. Linear Search/README.md",
+    "03. Algorithms/Techniques/Frequency Array/README.md",
+    "03. Algorithms/README.md",
+    "03. Algorithms/Techniques/Frequency Array",
     "03. Algorithms/Searching/02. Binary Search/README.md",
+    "03. Algorithms/Searching/01. Linear Search/README.md",
     "README.md",
     "04. Data Structures/README.md",
-    "03. Algorithms/README.md",
     "Searching/02. Binary Search",
     "Searching",
     "My Solutions/02. Binary Search/findFloor.swift",
@@ -201,7 +203,6 @@
     "My Solutions/02. Binary Search/findElement.swift",
     "03. Algorithms/Searching/README.md",
     "03. Algorithms/Sorting/README.md",
-    "My Solutions/01. Linear Search/findMinimum.swift",
     "03. DSA/Algorithms/Searching/02. Binary Search/README.md",
     "03. DSA/Algorithms/Searching/01. Linear Search/README.md",
     "03. DSA/Algorithms/Searching/Linear Search/Untitled.md",
