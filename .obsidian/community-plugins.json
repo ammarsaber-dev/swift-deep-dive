@@ -1,7 +1,5 @@
 [
   "colored-tags",
-  "shiki-highlighter",
-  "obsidian-style-settings",
-  "slash-commander",
-  "table-checkboxes"
+  "table-checkboxes",
+  "obsidian-style-settings"
 ]

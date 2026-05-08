@@ -3,7 +3,7 @@
   "showUnsupportedFiles": true,
   "alwaysUpdateLinks": true,
   "defaultViewMode": "preview",
-  "readableLineLength": false,
+  "readableLineLength": true,
   "pdfExportSettings": {
     "pageSize": "Letter",
     "landscape": false,
