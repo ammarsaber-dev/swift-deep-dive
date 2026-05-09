@@ -91,7 +91,7 @@
   "maple-editor@@heading-h1-style": "heading-h1-full-line",
   "maple-editor@@setting-h1-size": 1.6,
   "Editor@@h1-size": "5em",
-  "Editor@@inline-title-size": "1.5em",
+  "Editor@@inline-title-size": "0em",
   "Editor@@h2-size": "2.5em",
   "Editor@@h2-divider-on": true,
   "Components@@status-bar-autohide": true,
@@ -110,5 +110,6 @@
   "Appearance-light@@theme-light-style-select": "theme-light-background-default",
   "Appearance-light@@color-to-tab-icon-light": false,
   "Appearance-light@@card-highlight-light": false,
-  "Appearance-light@@workspace-divider-transparent-light": false
+  "Appearance-light@@workspace-divider-transparent-light": false,
+  "Editor@@inline-title-divider-remove": true
 }

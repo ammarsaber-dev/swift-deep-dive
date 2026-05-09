@@ -35,3 +35,11 @@ A deep dive into pure Swift, exploring core mechanics, memory management, and Da
 - [Stack](./04.%20Data%20Structures/Stack/README.md)
 - [Queue](./04.%20Data%20Structures/Queue/README.md)
 - [Array](./04.%20Data%20Structures/Array/README.md)
+
+### 05. OOP
+
+- _Coming Soon_
+
+### 06. SOLID Principles
+
+- _Coming Soon_
