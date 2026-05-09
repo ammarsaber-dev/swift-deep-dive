@@ -1,44 +1,65 @@
+enum StackError: Error {
+    case overflow
+    case underflow
+}
+
 struct DynamicStack<T> {
+
+    // Backing array. append() = push, popLast() = pop — both O(1).
     private var storage: [T] = []
 
     init() {}
 
+    // Initialize from an existing array. Last element becomes the top.
     init(_ elements: [T]) {
         storage = elements
     }
 
+    // True when the stack has no elements.
     var isEmpty: Bool {
-        // peek() == nil
-        storage.isEmpty
+        peek() == nil
     }
 
+    // Adds an element to the top.
     mutating func push(_ item: T) {
         storage.append(item)
     }
 
+    // Removes and returns the top element. Throws underflow if empty.
     @discardableResult
-    mutating func pop() -> T? {
-        storage.popLast()
+    mutating func pop() throws -> T {
+        guard let item = storage.popLast() else { throw StackError.underflow }
+        return item
     }
 
-    mutating func removeAll() {
-        storage.removeAll()
-    }
-
+    // Returns the top element without removing it. Returns nil if empty.
     func peek() -> T? {
         storage.last
     }
 
+    // Removes all elements.
+    mutating func removeAll() {
+        storage.removeAll()
+    }
 }
 
-var dStack = DynamicStack([1, 2, 3, 4])
+// Usage
+var dynamic = DynamicStack([1, 2, 3])
 
-print(dStack)
-dStack.push(5)
-print(dStack)
+print(dynamic.peek() ?? "empty")  // 3
+dynamic.push(4)
 
-let lastElement = dStack.peek()
-print(lastElement ?? "Stack is empty")
+do {
+    print(try dynamic.pop())  // 4
+    print(try dynamic.pop())  // 3
+} catch StackError.underflow {
+    print("Stack is empty")
+}
 
-dStack.pop()
-print(dStack)
+dynamic.removeAll()
+
+do {
+    try dynamic.pop()  // throws underflow
+} catch StackError.underflow {
+    print("Stack is empty")  // Stack is empty
+}

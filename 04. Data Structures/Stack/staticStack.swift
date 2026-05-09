@@ -4,6 +4,8 @@ enum StackError: Error {
 }
 
 struct StaticStack<T> {
+
+    // Backing array. append() = push, popLast() = pop — both O(1).
     private var storage: [T] = []
     let capacity: Int
 
@@ -11,55 +13,60 @@ struct StaticStack<T> {
         self.capacity = capacity
     }
 
+    // True when the stack has no elements.
     var isEmpty: Bool {
-        // peek() == nil
-        storage.isEmpty
+        peek() == nil
     }
 
+    // Adds an element to the top. Throws overflow if capacity is reached.
     mutating func push(_ item: T) throws {
-        // Prevent pushing if we hit our limit
-        guard storage.count < capacity else {
-            throw StackError.overflow
-        }
-
+        guard storage.count < capacity else { throw StackError.overflow }
         storage.append(item)
     }
 
+    // Removes and returns the top element. Throws underflow if empty.
     @discardableResult
-    mutating func pop() throws -> T? {
-        // Prevent popping if it's already empty
-        guard let item = storage.popLast() else {
-            throw StackError.underflow
-        }
-
+    mutating func pop() throws -> T {
+        guard let item = storage.popLast() else { throw StackError.underflow }
         return item
     }
 
-    mutating func removeAll() {
-        storage.removeAll()
-    }
-
+    // Returns the top element without removing it. Returns nil if empty.
     func peek() -> T? {
         storage.last
     }
+
+    // Removes all elements.
+    mutating func removeAll() {
+        storage.removeAll()
+    }
 }
 
-var sStack = StaticStack<Int>(capacity: 5)
+// Usage
+var fixedStack = StaticStack<Int>(capacity: 3)
 
 do {
-    print(sStack)
-    try sStack.push(1)
-    try sStack.push(2)
-    try sStack.push(3)
-    try sStack.push(4)
-    try sStack.push(5)
-    print(sStack)
+    try fixedStack.push(1)
+    try fixedStack.push(2)
+    try fixedStack.push(3)
+    try fixedStack.push(4)  // throws overflow
+} catch StackError.overflow {
+    print("Stack is full")  // Stack is full
+}
 
-    let lastElement = sStack.peek()
-    print(lastElement ?? "Stack is empty")
+print(fixedStack.peek() ?? "empty")  // 3
 
-    // try sStack.push(10) // This will error out (Stack Overflow)
+do {
+    print(try fixedStack.pop())  // 3
+    print(try fixedStack.pop())  // 2
+} catch StackError.underflow {
+    print("Stack is empty")
+}
 
-    try sStack.pop()
-    print(sStack)
+fixedStack.removeAll()
+
+do {
+    try fixedStack.pop()  // throws underflow
+} catch StackError.underflow {
+    print("Stack is empty")  // Stack is empty
 }
