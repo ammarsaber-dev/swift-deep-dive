@@ -41,8 +41,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "04. Data Structures/Queue/README.md",
-                "mode": "preview",
+                "file": "README.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
@@ -215,10 +215,11 @@
   },
   "active": "4e6f747b76a4c4a3",
   "lastOpenFiles": [
+    "02. Advanced Swift/README.md",
+    "README.md",
+    "04. Data Structures/Queue/README.md",
     "04. Data Structures/Stack/README.md",
     "04. Data Structures/Array/README.md",
-    "04. Data Structures/Queue/README.md",
-    "README.md",
     "04. Data Structures/Array/dynamicArray.swift",
     "04. Data Structures/Array/staticArray.swift",
     "04. Data Structures/Array/static.swift",

@@ -6,17 +6,7 @@ A deep dive into pure Swift, exploring core mechanics, memory management, and Da
 > Open in [Obsidian](https://obsidian.md/) for better experience.
 
 > [!NOTE]
-> For Problem Solving & Leetcode solutions you can visit [My Repo](https://github.com/ammarsaber-dev/problem-solving).
-
-## Progress
-
-| Area | Progress |
-|---|---|
-| Core Swift | ▰▰▰▰▰▰▰▰▰▰▱▱ 1 / 10 |
-| Advanced Swift | ▱▱▱▱▱▱▱▱▱▱▱▱ 0 / 8 |
-| Algorithms (Searching) | ▰▰ 2 / 2 |
-| Algorithms (Techniques) | ▰▰ 2 / 2 |
-| Data Structures | ▰▰▰▱▱▱▱▱▱▱ 3 / 12 |
+> For Problem Solving & Leetcode solutions you can visit [This Repo](https://github.com/ammarsaber-dev/problem-solving).
 
 ## Contents
 
@@ -26,7 +16,7 @@ A deep dive into pure Swift, exploring core mechanics, memory management, and Da
 
 ### 02. Advanced Swift
 
-- _Coming soon_ — [planned topics](./02.%20Advanced%20Swift/README.md)
+- _Coming soon_
 
 ### 03. Algorithms
 
