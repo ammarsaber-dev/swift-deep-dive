@@ -4,28 +4,34 @@ A linear data structure that follows LIFO — Last In, First Out. The last eleme
 
 Unlike arrays, a stack enforces how you access your data. You can't reach into the middle — everything goes through the top.
 
+---
 ## Structure & Properties
 
 - Backed internally by an array
-- `append()` adds to the top, `popLast()` removes from the top — both O(1)
+- `append()` adds to the top, `popLast()` removes from the top — both O(1)
 - Only the top element is ever directly accessible
 - Space complexity is O(n) — one slot per element, no extra overhead
 
 ## Core Operations
 
-|Operation|Time Complexity|Notes|
-|---|---|---|
-|push|O(1)|Appends to the end of the backing array|
-|pop|O(1)|Removes and returns the top element|
-|peek|O(1)|Returns the top element without removing it|
-|isEmpty|O(1)|Checks if the stack has no elements|
+|Operation|Time Complexity|Return Type|Notes|
+|---|---|---|---|
+|push|O(1)|Void|Dynamic variant; static variant returns Bool|
+|pop|O(1)|T?|Returns nil when the stack is empty|
+|peek|O(1)|T?|Returns nil when the stack is empty|
+|isEmpty|O(1)|Bool|Checks if the stack has no elements|
+|count|O(1)|Int|Number of elements currently in the stack|
+
+---
 
 ## When to Use It
 
-- **Undo / redo** — each action is pushed, undoing pops the last one
-- **Backtracking** — maze solving and DFS push decision points and pop on dead ends
-- **Call stack** — memory management at the architectural level uses this exact model
-- **Any problem requiring reversal** — processing things in the opposite order they arrived
+- **Undo / redo** — each action is pushed, undoing pops the last one
+- **Backtracking** — maze solving and DFS push decision points and pop on dead ends
+- **Call stack** — memory management at the architectural level uses this exact model
+- **Any problem requiring reversal** — processing things in the opposite order they arrived
+
+---
 
 ## Limitations
 
@@ -33,16 +39,9 @@ Unlike arrays, a stack enforces how you access your data. You can't reach into t
 - No iteration — exposing elements via subscript or iterators defeats the purpose
 - Linear search — finding a value requires popping until a match is found
 
+---
+
 ## Implementation (Swift)
-
-Both stack variants share the same error type — defined once here and used across both implementations.
-
-```swift
-enum StackError: Error {
-    case overflow  // Attempted to push onto a full stack
-    case underflow // Attempted to pop from an empty stack
-}
-```
 
 ### Dynamic Stack
 
@@ -51,39 +50,35 @@ Grows as needed — no fixed capacity.
 ```swift
 struct DynamicStack<T> {
 
-    // Backing array. append() = push, popLast() = pop — both O(1).
     private var storage: [T] = []
 
     init() {}
 
-    // Initialize from an existing array. Last element becomes the top.
     init(_ elements: [T]) {
         storage = elements
     }
 
-    // True when the stack has no elements.
     var isEmpty: Bool {
-        peek() == nil
+        storage.isEmpty
     }
 
-    // Adds an element to the top.
+    var count: Int {
+        storage.count
+    }
+
     mutating func push(_ item: T) {
         storage.append(item)
     }
 
-    // Removes and returns the top element. Throws underflow if empty.
     @discardableResult
-    mutating func pop() throws -> T {
-        guard let item = storage.popLast() else { throw StackError.underflow }
-        return item
+    mutating func pop() -> T? {
+        storage.popLast()
     }
 
-    // Returns the top element without removing it. Returns nil if empty.
     func peek() -> T? {
         storage.last
     }
 
-    // Removes all elements.
     mutating func removeAll() {
         storage.removeAll()
     }
@@ -95,92 +90,93 @@ var dynamic = DynamicStack([1, 2, 3])
 print(dynamic.peek() ?? "empty")  // 3
 dynamic.push(4)
 
-do {
-    print(try dynamic.pop())      // 4
-    print(try dynamic.pop())      // 3
-} catch StackError.underflow {
-    print("Stack is empty")
+if let item = dynamic.pop() {
+    print(item)  // 4
+}
+if let item = dynamic.pop() {
+    print(item)  // 3
 }
 
 dynamic.removeAll()
 
-do {
-    try dynamic.pop()             // throws underflow
-} catch StackError.underflow {
-    print("Stack is empty")      // Stack is empty
+if let item = dynamic.pop() {
+    print(item)
+} else {
+    print("Stack is empty")  // Stack is empty
 }
 ```
 
 ### Static Stack
 
-Fixed capacity — throws on overflow or underflow.
+Fixed capacity — push returns false when full. Backed by a fixed-size `[T?]` array — no dynamic resizing.
 
 ```swift
 struct StaticStack<T> {
-
-    // Backing array. append() = push, popLast() = pop — both O(1).
-    private var storage: [T] = []
+    private var storage: [T?]
+    private(set) var count: Int = 0
     let capacity: Int
 
     init(capacity: Int) {
         self.capacity = capacity
+        self.storage = [T?](repeating: nil, count: capacity)
     }
 
-    // True when the stack has no elements.
-    var isEmpty: Bool {
-        peek() == nil
-    }
+    var isEmpty: Bool { count == 0 }
+    var isFull: Bool { count == capacity }
 
-    // Adds an element to the top. Throws overflow if capacity is reached.
-    mutating func push(_ item: T) throws {
-        guard storage.count < capacity else { throw StackError.overflow }
-        storage.append(item)
-    }
-
-    // Removes and returns the top element. Throws underflow if empty.
     @discardableResult
-    mutating func pop() throws -> T {
-        guard let item = storage.popLast() else { throw StackError.underflow }
+    mutating func push(_ item: T) -> Bool {
+        guard !isFull else { return false }
+        storage[count] = item
+        count += 1
+        return true
+    }
+
+    @discardableResult
+    mutating func pop() -> T? {
+        guard !isEmpty else { return nil }
+        count -= 1
+        let item = storage[count]
+        storage[count] = nil
         return item
     }
 
-    // Returns the top element without removing it. Returns nil if empty.
     func peek() -> T? {
-        storage.last
+        guard !isEmpty else { return nil }
+        return storage[count - 1]
     }
 
-    // Removes all elements.
     mutating func removeAll() {
-        storage.removeAll()
+        storage = [T?](repeating: nil, count: capacity)
+        count = 0
     }
 }
 
 // Usage
 var fixedStack = StaticStack<Int>(capacity: 3)
 
-do {
-    try fixedStack.push(1)
-    try fixedStack.push(2)
-    try fixedStack.push(3)
-    try fixedStack.push(4)       // throws overflow
-} catch StackError.overflow {
-    print("Stack is full")       // Stack is full
+fixedStack.push(1)
+fixedStack.push(2)
+fixedStack.push(3)
+
+if !fixedStack.push(4) {
+    print("Stack is full")  // Stack is full
 }
 
 print(fixedStack.peek() ?? "empty")  // 3
 
-do {
-    print(try fixedStack.pop())  // 3
-    print(try fixedStack.pop())  // 2
-} catch StackError.underflow {
-    print("Stack is empty")
+if let item = fixedStack.pop() {
+    print(item)  // 3
+}
+if let item = fixedStack.pop() {
+    print(item)  // 2
 }
 
 fixedStack.removeAll()
 
-do {
-    try fixedStack.pop()         // throws underflow
-} catch StackError.underflow {
-    print("Stack is empty")      // Stack is empty
+if let item = fixedStack.pop() {
+    print(item)
+} else {
+    print("Stack is empty")  // Stack is empty
 }
 ```

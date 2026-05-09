@@ -1,5 +1,6 @@
-struct StaticStack<T> {
+struct StaticQueue<T> {
     private var storage: [T?]
+    private var head: Int = 0
     private(set) var count: Int = 0
     let capacity: Int
 
@@ -12,56 +13,61 @@ struct StaticStack<T> {
     var isFull: Bool { count == capacity }
 
     @discardableResult
-    mutating func push(_ item: T) -> Bool {
+    mutating func enqueue(_ item: T) -> Bool {
         guard !isFull else { return false }
-        storage[count] = item
+        let index = (head + count) % capacity
+        storage[index] = item
         count += 1
         return true
     }
 
     @discardableResult
-    mutating func pop() -> T? {
+    mutating func dequeue() -> T? {
         guard !isEmpty else { return nil }
+        let item = storage[head]
+        storage[head] = nil
+        head = (head + 1) % capacity
         count -= 1
-        let item = storage[count]
-        storage[count] = nil
         return item
     }
 
     func peek() -> T? {
         guard !isEmpty else { return nil }
-        return storage[count - 1]
+        return storage[head]
     }
 
     mutating func removeAll() {
         storage = [T?](repeating: nil, count: capacity)
+        head = 0
         count = 0
     }
 }
 
-var fixedStack = StaticStack<Int>(capacity: 3)
+var fixedQueue = StaticQueue<Int>(capacity: 3)
 
-fixedStack.push(1)
-fixedStack.push(2)
-fixedStack.push(3)
+fixedQueue.enqueue(1)
+fixedQueue.enqueue(2)
+fixedQueue.enqueue(3)
 
-if !fixedStack.push(4) {
-    print("Stack is full")
+if !fixedQueue.enqueue(4) {
+    print("Queue is full!")
 }
 
-print(fixedStack.peek() ?? "empty")
-
-if let item = fixedStack.pop() {
-    print(item)
-}
-if let item = fixedStack.pop() {
+if let item = fixedQueue.peek() {
     print(item)
 }
 
-fixedStack.removeAll()
+if let item = fixedQueue.dequeue() {
+    print(item)
+}
+if let item = fixedQueue.dequeue() {
+    print(item)
+}
 
-if let item = fixedStack.pop() {
+fixedQueue.removeAll()
+
+if let item = fixedQueue.dequeue() {
     print(item)
 } else {
-    print("Stack is empty")
+    print("Queue is empty")
 }
