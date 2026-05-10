@@ -32,7 +32,7 @@ The frequency array is the answer. Instead of treating the array as a sequence t
 
 The key mental flip: **use the element's value as its own index.** If the number `5` appears three times, store `3` at index `5`. The array's indices _become_ a map from value to count.
 
-> [!info] This technique relies on a underlying [[04. Data Structures/Array/README.md|Array]] for O(1) random access. The array's indices serve as your keys — the faster you can read and write from it, the better.
+> [!info] This technique relies on a underlying [[03. Data Structures/Array/README.md|Array]] for O(1) random access. The array's indices serve as your keys — the faster you can read and write from it, the better.
 
 ---
 

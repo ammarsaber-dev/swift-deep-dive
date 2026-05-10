@@ -33,7 +33,7 @@ The prefix sum is the answer. Walk the array once, and at every position store t
 
 Think of it like a bank statement. Instead of adding up every transaction each time you want your balance, you just look at the running total column.
 
-> [!info] Prefix Sum is built on top of a standard [[04. Data Structures/Array/README.md|Array]] — the O(1) random access it provides is what makes range queries fast.
+> [!info] Prefix Sum is built on top of a standard [[03. Data Structures/Array/README.md|Array]] — the O(1) random access it provides is what makes range queries fast.
 
 ---
 

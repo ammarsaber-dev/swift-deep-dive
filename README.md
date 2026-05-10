@@ -10,36 +10,32 @@ A deep dive into pure Swift, exploring core mechanics, memory management, and Da
 
 ## Contents
 
-### 01. Core Swift
-
-- [Optionals](./01.%20Core%20Swift/Optionals/README.md)
-
-### 02. Advanced Swift
+### 01. Swift
 
 - _Coming soon_
 
-### 03. Algorithms
+### 02. Algorithms
 
 #### Searching
 
-- [Linear Search](./03.%20Algorithms/Searching/01.%20Linear%20Search/README.md)
-- [Binary Search](./03.%20Algorithms/Searching/02.%20Binary%20Search/README.md)
+- [Linear Search](./02.%20Algorithms/Searching/01.%20Linear%20Search/README.md)
+- [Binary Search](./02.%20Algorithms/Searching/02.%20Binary%20Search/README.md)
 
 #### Techniques
 
-- [Frequency Array](./03.%20Algorithms/Techniques/Frequency%20Array/README.md)
-- [Prefix Sum](./03.%20Algorithms/Techniques/Prefix%20Sum/README.md)
+- [Frequency Array](./02.%20Algorithms/Techniques/Frequency%20Array/README.md)
+- [Prefix Sum](./02.%20Algorithms/Techniques/Prefix%20Sum/README.md)
 
-### 04. Data Structures
+### 03. Data Structures
 
-- [Stack](./04.%20Data%20Structures/Stack/README.md)
-- [Queue](./04.%20Data%20Structures/Queue/README.md)
-- [Array](./04.%20Data%20Structures/Array/README.md)
+- [Stack](./03.%20Data%20Structures/Stack/README.md)
+- [Queue](./03.%20Data%20Structures/Queue/README.md)
+- [Array](./03.%20Data%20Structures/Array/README.md)
 
-### 05. OOP
+### 04. OOP
 
-- _Coming Soon_
+- [OOP](./04.%20OOP/README.md)
 
-### 06. SOLID Principles
+### 05. SOLID Principles
 
-- _Coming Soon_
+- [Single Responsibility Principle](./05.%20SOLID%20principles/1.%20Single%20Responsibility%20Principle.md)

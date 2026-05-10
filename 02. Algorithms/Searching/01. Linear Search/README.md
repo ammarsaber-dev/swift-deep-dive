@@ -25,7 +25,7 @@
 
 Linear search is the simplest searching algorithm — and often the most appropriate one. You scan every element in order until you find your target or exhaust the array. No sorting required. No random access required. No setup cost.
 
-It gets dismissed as the "slow" option, but that framing misses the point. Linear search shines precisely in situations where [[Binary Search]] can't even start.
+It gets dismissed as the "slow" option, but that framing misses the point. Linear search shines precisely in situations where [Binary Search](../02.%20Binary%20Search/README.md) can't even start.
 
 ---
 
@@ -71,7 +71,7 @@ Linear search isn't a fallback — it's the right tool in specific situations:
 
 **Don't use linear search when:**
 
-- The array is already **sorted** — use [Binary Search](03.%20Algorithms/Searching/02.%20Binary%20Search/README.md)
+- The array is already **sorted** — use [Binary Search](../02.%20Binary%20Search/README.md)
 - You're running **many searches** on the same large dataset — sort once, search fast
 
 ---

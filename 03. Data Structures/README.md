@@ -1,4 +1,4 @@
-# 04. Data Structures
+# 03. Data Structures
 
 Fundamental data structures implemented in Swift.
 
