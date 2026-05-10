@@ -1,5 +1,5 @@
 # Algorithms
 
 ## Searching Algorithms
-- [Linear Search](./Searching/01.%20Linear%20Search/README.md)
-- [Binary Search](./Searching/02.%20Binary%20Search/README.md)
+- [Linear Search](Algorithms/Searching/Linear%20Search/README.md)
+- [Binary Search](Algorithms/Searching/Binary%20Search/README.md)

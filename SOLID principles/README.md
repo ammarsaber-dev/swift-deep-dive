@@ -1,3 +1,4 @@
+# SOLID principles
 The five principles of SOLID don’t directly relate to each other, but they all serve the same purpose: keeping code simple and clear.
 
 These are the five SOLID principles:

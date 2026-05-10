@@ -4,17 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "a2abff04143cfdff",
+        "id": "7d5bdc299c074e7a",
         "type": "tabs",
         "children": [
           {
-            "id": "56206c151fd8a622",
+            "id": "1ff6b29056c695eb",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "SOLID principles/README.md",
-                "mode": "source",
+                "file": "Object-Oriented Programming/README.md",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
@@ -184,12 +184,15 @@
       "bases:Create new base": false
     }
   },
-  "active": "56206c151fd8a622",
+  "active": "1ff6b29056c695eb",
   "lastOpenFiles": [
+    "README.md",
+    "SOLID principles/README.md",
+    "Data Structures/README.md",
     "Algorithms/README.md",
+    "Data Structures/Stack/README.md",
     "SOLID principles/1. Single Responsibility Principle.md",
     "Algorithms/Techniques/Prefix Sum/README.md",
-    "README.md",
     "06. SOLID principles/README.md",
     "06. SOLID principles/1. Single Responsibility Principle.md",
     "05. OOP/README.md",
@@ -228,9 +231,6 @@
     "export/heap-sort/plugin/menu/CONTRIBUTING.md",
     "HEAP SORT.md",
     "01. Core Swift/Optionals/README.md",
-    "03. Algorithms/Techniques/Prefix Sum/README.md",
-    "03. Algorithms/Techniques/Frequency Array/README.md",
-    "03. Algorithms/README.md",
-    "03. Algorithms/Searching/02. Binary Search/README.md"
+    "03. Algorithms/Techniques/Prefix Sum/README.md"
   ]
 }
