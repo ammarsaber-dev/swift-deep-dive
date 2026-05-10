@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Algorithms/README.md",
+                "file": "SOLID principles/README.md",
                 "mode": "source",
                 "source": false
               },
@@ -186,6 +186,8 @@
   },
   "active": "56206c151fd8a622",
   "lastOpenFiles": [
+    "Algorithms/README.md",
+    "SOLID principles/1. Single Responsibility Principle.md",
     "Algorithms/Techniques/Prefix Sum/README.md",
     "README.md",
     "06. SOLID principles/README.md",
@@ -229,8 +231,6 @@
     "03. Algorithms/Techniques/Prefix Sum/README.md",
     "03. Algorithms/Techniques/Frequency Array/README.md",
     "03. Algorithms/README.md",
-    "03. Algorithms/Searching/02. Binary Search/README.md",
-    "03. Algorithms/Searching/01. Linear Search/README.md",
-    "03. Algorithms/Searching/README.md"
+    "03. Algorithms/Searching/02. Binary Search/README.md"
   ]
 }
