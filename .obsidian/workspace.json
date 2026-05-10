@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "407cfa73cc2e4ebb",
+        "id": "a2abff04143cfdff",
         "type": "tabs",
         "children": [
           {
-            "id": "7591eca167442b83",
+            "id": "56206c151fd8a622",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "03. Data Structures/README.md",
+                "file": "Algorithms/README.md",
                 "mode": "source",
                 "source": false
               },
@@ -184,8 +184,9 @@
       "bases:Create new base": false
     }
   },
-  "active": "7591eca167442b83",
+  "active": "56206c151fd8a622",
   "lastOpenFiles": [
+    "Algorithms/Techniques/Prefix Sum/README.md",
     "README.md",
     "06. SOLID principles/README.md",
     "06. SOLID principles/1. Single Responsibility Principle.md",
@@ -230,7 +231,6 @@
     "03. Algorithms/README.md",
     "03. Algorithms/Searching/02. Binary Search/README.md",
     "03. Algorithms/Searching/01. Linear Search/README.md",
-    "03. Algorithms/Searching/README.md",
-    "03. Algorithms/Sorting/README.md"
+    "03. Algorithms/Searching/README.md"
   ]
 }

@@ -13,15 +13,10 @@
     "algorithm": 1,
     "array": 2,
     "brute-force": 3,
-    "counting": 4,
     "divide-and-conquer": 5,
-    "offline-queries": 6,
-    "range-query": 7,
     "search": 8,
     "searching": 9,
-    "sorted": 10,
-    "strings": 11,
-    "technique": 12
+    "sorted": 10
   },
   "tagColors": {},
   "_version": 4
